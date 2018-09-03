@@ -1,0 +1,28 @@
+.button {
+  background-color: $brand-p;
+  border-radius: $t-size;
+  border: none;
+  color: $off-white;
+  font-size: $m-size;
+  font-weight: 500;
+  padding: $t-size $m-size;
+  margin: 0 0 $s-size 0;
+  cursor: pointer;
+  width: inherit;
+}
+
+.button--link {
+  @extend .button;
+  background-color: $white;
+  color: $off-black;
+  font-weight: 400;
+  display: inline-block;
+}
+
+.button--icon {
+  border: none;
+  background-color: inherit;
+  color: inherit;
+  width: $s-size;
+  cursor: pointer;
+}

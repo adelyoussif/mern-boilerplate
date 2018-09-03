@@ -1,0 +1,19 @@
+.text-input {
+  border: 1px solid $off-black;
+  border-radius: $t-size;
+  padding: $t-size;
+  font-size: $m-size;
+  font-weight: 300;
+  margin: 0 0 $s-size 0;
+  width: inherit;
+  //caret-color: green;
+}
+
+// .text-input:required {
+//   border: 1px solid green;
+// }
+
+.text-area {
+  @extend .text-input;
+  resize: none;
+}

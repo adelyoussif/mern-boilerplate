@@ -1,0 +1,23 @@
+.footer {
+  background-color: $off-black;
+  height: 7.5vh;
+}
+
+.footer a {
+  margin: 0 0 0 $l-size;
+  text-decoration: none;
+}
+
+.footer__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: $off-white;
+  padding: $s-size 0;
+}
+
+@media (max-width: 480px) {
+  .footer__content {
+    padding: $t-size 0;
+  } 
+}

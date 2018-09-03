@@ -1,0 +1,31 @@
+{
+  "name": "mern-boilerplate-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Adel Yousif",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "bcrypt": "^3.0.0",
+    "body-parser": "^1.18.3",
+    "compression": "^1.7.3",
+    "cors": "^2.8.4",
+    "debug": "^3.1.0",
+    "express": "^4.16.3",
+    "express-rate-limit": "^3.1.0",
+    "helmet": "^3.13.0",
+    "jsonwebtoken": "^8.3.0",
+    "mailchimp-api-v3": "^1.12.0",
+    "mongoose": "^5.2.12",
+    "morgan": "^1.9.0",
+    "nodemailer": "^4.6.8",
+    "validator": "^10.7.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.4"
+  }
+}
