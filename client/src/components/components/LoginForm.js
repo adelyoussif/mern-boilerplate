@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 import TextInputField from '../common/TextInputField';
 import ButtonField from '../common/ButtonField';
-import * as actions from '../../actions';
+import * as actions from '../../store/actions';
 import { trimValues } from '../../utils';
 
 class LoginForm extends Component {
@@ -28,7 +28,7 @@ class LoginForm extends Component {
     this.setState((prevState, props) => {
       return { [name]: value} 
     });
-    this.props.clearErrors(e.target.name, this.props.errors);
+    this.props.clearAuthErrors();
   }
 
   formSubmitHandler = (e)=> {

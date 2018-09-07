@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 
-import * as actions from '../../actions';
+import * as actions from '../../store/actions';
 import { trimValues } from '../../utils';
 import Spinner from '../common/Spinner';
 import EmailConfirmationForm from '../components/EmailConfirmationForm';

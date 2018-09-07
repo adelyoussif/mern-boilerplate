@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import TextInputField from '../common/TextInputField';
 import TextAreaField from '../common/TextAreaField';
 import ButtonField from '../common/ButtonField';
-import * as actions from '../../actions';
+import * as actions from '../../store/actions';
 import { trimValues } from '../../utils';
 
 class ContactForm extends Component {
@@ -34,13 +34,16 @@ class ContactForm extends Component {
     this.setState((prevState, props) => {
       return { [name]: value} 
     });
+    this.props.clearContactErrors();
   }
 
-  formSubmitHandler = async (e)=> {
+  formSubmitHandler = (e) => {
     e.preventDefault();
     const {apiErrors, success, ...user } = this.state;
-    this.props.contact(trimValues(user));
-    // You Might Add A redirect Here 
+    this.props.contact(trimValues(user), () => {
+      console.log('Done');
+      // You Might Add A redirect Here 
+    });
   };
 
   render() {
@@ -93,8 +96,8 @@ class ContactForm extends Component {
 
 function mapStateToProps(state) {
   return { 
-    apiErrors: state.auth.errors,
-    success: state.auth.success
+    apiErrors: state.contact.errors,
+    success: state.contact.success
   };
 }
 

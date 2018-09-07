@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import TextInputField from '../common/TextInputField';
 import ButtonField from '../common/ButtonField';
-import * as actions from '../../actions';
+import * as actions from '../../store/actions';
 
 class EmailConfirmationForm extends Component {
 
@@ -35,7 +35,7 @@ class EmailConfirmationForm extends Component {
     this.setState((prevState, props) => {
       return { [name]: value} 
     });
-    this.props.clearErrors();
+    this.props.clearAuthErrors();
   }
 
   formSubmitHandler = (e)=> {

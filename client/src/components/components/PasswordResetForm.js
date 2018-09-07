@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import TextInputField from '../common/TextInputField';
 import ButtonField from '../common/ButtonField';
-import * as actions from '../../actions';
+import * as actions from '../../store/actions';
 import { trimValues } from '../../utils';
 
 class PasswordResetForm extends Component {
@@ -34,7 +34,7 @@ class PasswordResetForm extends Component {
 
   formSubmitHandler = (e)=> {
     e.preventDefault();
-    const { ...login } = this.state;
+    const { apiErrors, success, ...login } = this.state;
     this.props.resetPassword(trimValues(login));
   };
 

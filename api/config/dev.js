@@ -1,6 +1,6 @@
 module.exports = {
   DB_URL: 'mongodb://localhost:27017/dev', // Database URL
-  secret: asdfghjklqwerty,  // jwt
+  secret: 'asdfghjklqwerty',  // jwt
   saltRounds: 10, // bcrypt
   MC_ID: '', // Mailchimp
   MC_List: '', // Mailchimp

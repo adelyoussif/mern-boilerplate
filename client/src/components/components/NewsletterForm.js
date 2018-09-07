@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import TextInputField from '../common/TextInputField';
 import ButtonField from '../common/ButtonField';
-import * as actions from '../../actions';
+import * as actions from '../../store/actions';
 import { trimValues } from '../../utils';
 
 class NewsletterForm extends Component {
@@ -28,16 +28,18 @@ class NewsletterForm extends Component {
   inputChangeHandler = (e) => {
     const { name, value } = e.target;
     this.setState((prevState, props) => {
-      return { [name]: value} 
+      return { [name]: value } 
     });
-    this.props.clearErrors();
+    this.props.clearContactErrors();
   }
 
-  formSubmitHandler = async (e)=> {
+  formSubmitHandler = (e) => {
     e.preventDefault();
-    const { ...email } = this.state;
-    this.props.subscribe(trimValues(email));
-    // You Might Add A redirect Here 
+    const { apiErrors, success, ...email } = this.state;
+    this.props.subscribe(trimValues(email), () => {
+      console.log('Done');
+      // You Might Add A redirect Here 
+    });
   };
 
   render() {
@@ -58,7 +60,6 @@ class NewsletterForm extends Component {
           name="email"
           value={email}
           onChange={this.inputChangeHandler}
-          autoComplete="off"
           autoFocus="true"
         />
          { apiErrors.subscribe && <div className="input__error"> {apiErrors.subscribe}</div> }
@@ -71,8 +72,8 @@ class NewsletterForm extends Component {
 
 function mapStateToProps(state) {
   return { 
-    apiErrors: state.auth.errors,
-    success: state.auth.success
+    apiErrors: state.contact.errors,
+    success: state.contact.success
   };
 }
 

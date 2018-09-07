@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import TextInputField from '../common/TextInputField';
 import ButtonField from '../common/ButtonField';
-import * as actions from '../../actions';
+import * as actions from '../../store/actions';
 import { trimValues } from '../../utils';
 
 class SignupForm extends Component {
@@ -30,7 +30,7 @@ class SignupForm extends Component {
     this.setState((prevState, props) => {
       return { [name]: value } 
     });
-    this.props.clearErrors(e.target.name, this.props.errors);
+    this.props.clearAuthErrors(e.target.name, this.props.apiErrors);
   }
 
   formSubmitHandler = (e)=> {
@@ -39,7 +39,6 @@ class SignupForm extends Component {
     this.props.signup(trimValues(user), () => {
       this.props.history.push(`/confirm`);
     });
-    console.log(trimValues(user));
   };
 
   render() {

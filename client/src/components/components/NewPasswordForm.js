@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import TextInputField from '../common/TextInputField';
 import ButtonField from '../common/ButtonField';
-import * as actions from '../../actions';
+import * as actions from '../../store/actions';
 import { trimValues } from '../../utils';
 
 class NewPasswordForm extends Component {
@@ -32,7 +32,7 @@ class NewPasswordForm extends Component {
 
   formSubmitHandler = (e)=> {
     e.preventDefault();
-    const { apiErrors, ...user } = this.state;
+    const { apiErrors, type, ...user } = this.state;
     this.props.newPassword(trimValues(user), () => {
       if(this.props.user) {
         this.props.history.push(`/${this.props.user.username}`);
