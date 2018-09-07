@@ -26,7 +26,6 @@ In api/config/dev.js we need to change:
     open your terminal
     cd api 
     yarn install or npm install
-    export DEBUG=App:Debugger,DB:Debugger,Morgan:Debugger
     yarn run dev or npm run dev
     api is now running in port 8080
 

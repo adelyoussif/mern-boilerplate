@@ -7,7 +7,7 @@
   "private": true,
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "export DEBUG=App:Debugger,DB:Debugger,Morgan:Debugger && nodemon index.js"
   },
   "dependencies": {
     "bcrypt": "^3.0.0",
